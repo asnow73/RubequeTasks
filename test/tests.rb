@@ -1,21 +1,23 @@
 #require_relative 'test_helper'
-require 'test_helper'
-require '../lib/tasks'
 
-include Rubeque_tasks
+require "test_helper"
+#autoload :test_helper, 'test_helper'
+require "../lib/tasks"
 
-module Rubeque_tests
+include RubequeTasks
+
+module RubequeTests
   class TestMain < MiniTest::Unit::TestCase
     def test_true
       assert_equal true, the_truth
     end
 
     def test_reverse
-	    assert_equal 'nocab yknuhc'.reverse, reverse
+	    assert_equal "nocab yknuhc".reverse, reverse
     end
 
     def test_hello_world
-      assert_equal 'HELLO WORLD', hello_world
+      assert_equal "HELLO WORLD", hello_world
     end
 
     def test_maximum
@@ -25,7 +27,7 @@ module Rubeque_tests
     end
 
     def test_nil_values
-      [0, '', 'chunky_bacon'].each { |v| assert_equal v.nil?, nil_values }
+      [0, "", "chunky_bacon"].each { |v| assert_equal v.nil?, nil_values }
     end
     
     def test_map
@@ -40,7 +42,7 @@ module Rubeque_tests
     end
 
     def test_missing_method
-      assert_equal [1, 4, nil, 9, 16, nil].method(missing_method).call.inject(0) {|sum, number| sum + number}, 30
+      assert_equal [1, 4, nil, 9, 16, nil].compact.inject(0) {|sum, number| sum + number}, 30
     end
 
     def test_blackjack
@@ -50,7 +52,7 @@ module Rubeque_tests
     end
 
     def test_missing_method_2
-      assert_equal [1, 3, 7, 4, 9, 8].method(missing_method_2).call(&:even?), 4
+      assert_equal [1, 3, 7, 4, 9, 8].detect(&:even?), 4
     end
 
     def test_temperature_robot
@@ -70,6 +72,7 @@ module Rubeque_tests
     def test_theres_no_way_this_works
       @name = "Dave"
       str = "My mind is going #@name"
+
       assert_equal (str == "My mind is going Dave"), theres_no_way_this_works
     end
 
@@ -78,9 +81,10 @@ module Rubeque_tests
     end
 
     def test_array_item_removal
-      params = array_item_removal
-      assert_equal ([:r, :u, :b, :e, :q, :u, :e].method(params.method_name).call(&params.lambda)), [:b, :q]     
-      #puts [:r, :u, :b, :e, :q, :u, :e].delete_if{|item| item != :b && item != :q }
+      #params = array_item_removal
+      #assert_equal ([:r, :u, :b, :e, :q, :u, :e].method(params.method_name).call(&params.lambda)), [:b, :q]     
+      arr = [:r, :u, :b, :e, :q, :u, :e].delete_if { |item| item != :b && item != :q }
+      assert_equal arr, [:b, :q]
     end
   end
 end
