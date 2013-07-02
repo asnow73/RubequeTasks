@@ -56,4 +56,24 @@ module Rubeque_tasks
       "This is uncomfortable for me"
     end
   end
+
+  def sum_over_50(arr)
+    arr.reject {|i| i <= 50 }.inject(0) {|sum, val| sum += val }
+  end
+
+  def theres_no_way_this_works
+    true
+  end
+
+  def home_on_the_range
+    11..94
+  end
+
+  Methodd_with_lambda = Struct.new(:method_name, :lambda)
+  def array_item_removal
+    content = lambda do 
+      |item| item != :b && item != :q
+    end
+    res = Methodd_with_lambda.new('delete_if', content)
+  end
 end

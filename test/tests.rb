@@ -60,5 +60,27 @@ module Rubeque_tests
       assert_equal temperature_bot(-3), "This is uncomfortable for me"
     end
 
+    def test_injected_and_rejected
+      assert_equal sum_over_50([29, 52, 77, 102]), 231
+      assert_equal sum_over_50([5, 11, 50]), 0
+      assert_equal sum_over_50([4, 8, 15, 16, 23, 42]), 0
+      assert_equal sum_over_50([300, 22, 1, 55, 42]), 355
+    end
+
+    def test_theres_no_way_this_works
+      @name = "Dave"
+      str = "My mind is going #@name"
+      assert_equal (str == "My mind is going Dave"), theres_no_way_this_works
+    end
+
+    def test_home_on_the_range
+      assert_equal (1..100).to_a[home_on_the_range].reduce(:+), 4494
+    end
+
+    def test_array_item_removal
+      params = array_item_removal
+      assert_equal ([:r, :u, :b, :e, :q, :u, :e].method(params.method_name).call(&params.lambda)), [:b, :q]     
+      #puts [:r, :u, :b, :e, :q, :u, :e].delete_if{|item| item != :b && item != :q }
+    end
   end
 end
