@@ -1,5 +1,8 @@
 #require_relative 'test_helper'
 require 'test_helper'
+require '../lib/tasks'
+
+include Rubeque_tasks
 
 module Rubeque_tests
   class TestMain < MiniTest::Unit::TestCase

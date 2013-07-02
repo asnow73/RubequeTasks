@@ -2,9 +2,6 @@ require 'rubygems'
 require 'bundler/setup'
 require 'minitest/autorun'
 #require_relative 'tasks'
-require '../lib/tasks'
-
-include Rubeque_tasks
 
 =begin
 require 'bundler/setup'
