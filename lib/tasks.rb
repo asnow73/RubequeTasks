@@ -25,8 +25,8 @@ module RubequeTasks
 
   def fizzbuzz(x)
   	res = ""
-  	res += "Fizz" if x % 3 == 0
-  	res += "Buzz" if x % 5 == 0
+  	res << "Fizz" if x % 3 == 0
+  	res << "Buzz" if x % 5 == 0
   	res
   end
 
