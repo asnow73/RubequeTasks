@@ -1,13 +1,13 @@
 #require_relative 'test_helper'
 
 require "test_helper"
-#autoload :test_helper, 'test_helper'
-require "../lib/tasks"
-
-include RubequeTasks
+autoload :RubequeTasks, "../lib/tasks"
 
 module RubequeTests
   class TestMain < MiniTest::Unit::TestCase
+
+    include RubequeTasks
+
     def test_true
       assert_equal true, the_truth
     end
