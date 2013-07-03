@@ -1,7 +1,8 @@
 #require_relative 'test_helper'
 
-require "test_helper"
-autoload :RubequeTasks, "../lib/tasks"
+require "test_helper" #require "./test_helper"
+#autoload :RubequeTasks, "../lib/tasks"
+require "tasks" #require "../lib/tasks"
 
 module RubequeTests
   class TestMain < MiniTest::Unit::TestCase
