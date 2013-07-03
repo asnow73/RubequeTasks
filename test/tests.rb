@@ -87,5 +87,74 @@ module RubequeTests
       arr = [:r, :u, :b, :e, :q, :u, :e].delete_if { |item| item != :b && item != :q }
       assert_equal arr, [:b, :q]
     end
+
+    def test_log_versus_and
+      roses = "blue" && "red"
+      violets = "blue" and "red"
+      assert_equal roses, "red"
+      assert_equal violets, log_versus_and
+    end
+
+    def test_subtracting_out_the_sugar
+      assert_equal 2.+(2), 2 + 2
+      assert_equal 40.+(2), 42
+    end
+
+    def test_string_concat_demo
+      str = "Hello" "World"
+      assert_equal str, string_concat_demo
+    end
+
+    def test_or_equal
+      b = 8
+      c = false
+
+      a ||= "rubeque"
+      b ||= "rubeque"
+      c ||= "rubeque"
+
+      assert_equal a, "rubeque"
+      assert_equal b, 8
+      assert_equal c, or_equal
+    end
+
+    def test_brackets_and_searches
+      index = brackets_and_searches
+      assert_equal "hello world"[index], "e"
+      assert_equal "what"[index],        nil
+      assert_equal "rubeque"[index],     "e"
+      assert_equal "E"[index],           nil
+    end
+
+    def test_alternate_array_notation
+      assert_equal %w(hello world), ["hello", "world"]
+      assert_equal %w{1 2 3 4}, ["1", "2", "3", "4"]
+      assert_equal %w?remembrance of things past?, ["remembrance", "of", "things", "past"]
+    end
+
+    def test_set_intersection
+      assert_equal ([ 1, 1, 3, 5 ] & [ 1, 2, 3 ]), [ 1, 3 ]
+    end
+
+    def test_getters_and_setters
+      thorin = Character.new
+      thorin.name = "Thorin Oakenshield"
+      thorin.quote = "Some courage and some wisdom, blended in measure. If more of us valued food and cheer and song above hoarded gold, it would be a merrier world"
+
+      stephen = Character.new
+      stephen.name = "Stephen Dedalus"
+
+      assert_equal thorin.name, "Thorin Oakenshield"
+      assert_equal stephen.name, "Stephen Dedalus"
+    end
+
+    def test_queue_continuum
+      queue = Queue.new([5, 6, 7, 8])
+      assert_equal queue.pop, 5
+      assert_equal queue.pop, 6
+      assert_equal queue.push([4, 2]), true
+      assert_equal queue.pop(2), [7, 8]
+      assert_equal queue.to_a, [4, 2]
+    end
   end
 end

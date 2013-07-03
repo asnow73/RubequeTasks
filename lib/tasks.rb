@@ -1,4 +1,28 @@
 module RubequeTasks
+  class Character
+    attr_accessor :name, :quote
+  end
+
+  class Queue
+    
+    def initialize(arr)
+      @queue = arr
+    end
+
+    def pop(val = 0)
+      val == 0 ? @queue.shift : @queue.shift(val)
+    end
+
+    def push(arr)
+      arr.each { |i| @queue.push(i) }
+      true
+    end
+
+    def to_a
+      @queue
+    end
+  end
+
   def the_truth
     true
   end
@@ -73,4 +97,23 @@ module RubequeTasks
   #  end
   #  res = Methodd_with_lambda.new('delete_if', content)
   #end
+
+  def log_versus_and
+    "blue"
+  end
+
+  def string_concat_demo
+    "HelloWorld"
+  end
+
+  def or_equal
+    "rubeque"
+  end
+
+begin
+  def brackets_and_searches
+    'e'
+  end
+end
+
 end
