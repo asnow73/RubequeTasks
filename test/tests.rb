@@ -156,5 +156,49 @@ module RubequeTests
       assert_equal queue.pop(2), [7, 8]
       assert_equal queue.to_a, [4, 2]
     end
+
+    def test_ternary_operator
+      a = "Miles O'Brien"
+      b = "Barack Obama"
+
+      assert_equal ((a =~ /[ ]\w'/) ? "Irish" : "Not Irish"), "Irish"
+      assert_equal ((b =~ /[ ]\w'/) ? "Irish" : "Not Irish"), "Not Irish"
+    end
+
+    def test_caution_case
+      assert_equal caution_case( 1 ), true
+      assert_equal caution_case( [1, 2] ), true
+      assert_equal caution_case( {1=>2} ), true
+      assert_equal caution_case( (1..2) ), false
+    end
+
+    def test_the_limits_of_probability
+      random_values = (0..1000000).inject(0.0) do |sum, _|
+        sum += rand(14) + rand(14)
+      end
+
+      assert_equal (random_values/1000000.0).round, the_limits_of_probability
+    end
+
+    def test_missing_method_3
+      a1 = [1, 2, 3]
+      a2 = [2, 3, 4]
+      b1 = ["durham", "bartow", "zwolle"]
+      b2 = ["nc", "fl", "nl"]
+
+      assert_equal a1.zip(a2), [[1, 2], [2, 3], [3, 4]]
+      assert_equal [10, 11, 12].zip(a1, a2), [[10, 1, 2], [11, 2, 3], [12, 3, 4]]
+      assert_equal b1.zip(b2), [["durham", "nc"], ["bartow", "fl"], ["zwolle", "nl"]]
+    end
+
+    def test_baby_got_stacks
+      stack = Stack.new([5, 6, 7, 8])
+
+      assert_equal stack.pop, 8
+      assert_equal stack.pop, 7
+      assert_equal stack.push([4, 2]), true
+      assert_equal stack.pop(3), [2, 4, 6]
+      assert_equal stack.to_a, [5]
+    end
   end
 end

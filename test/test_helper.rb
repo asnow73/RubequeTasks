@@ -1,4 +1,7 @@
 #require 'rubygems'
+
+require 'coveralls'
+Coveralls.wear!
 require 'bundler/setup'
 require 'minitest/autorun'
 #require_relative 'tasks'
@@ -6,7 +9,6 @@ require 'minitest/autorun'
 =begin
 require 'bundler/setup'
 Bundler.require
-
 require "minitest/autorun"
 
 if ENV['TRAVIS']
