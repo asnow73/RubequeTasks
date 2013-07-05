@@ -3,6 +3,10 @@ require "character.rb"
 require "stack.rb"
 require "class_A.rb"
 require "class_B.rb"
+require "foo.rb"
+require "bar.rb"
+require "class_C.rb"
+require "class_D.rb"
 
 module RubequeTasks
   def the_truth
@@ -118,13 +122,33 @@ module RubequeTasks
   end
 
   def first_even(arr)
-    arr.each { |i| return i if i.even? }
-    return nil
+    arr.find { |i| i.even? }
   end
 
   def reverse_each_word(sentence)
     words = sentence.split
     words.each { |word| word.reverse! }
     words.join(' ')
+  end
+
+  def get_generating_random_numbers
+    100...501
+  end
+
+  def fibo_finder(n)
+    return 0 if n == 0
+    return 1 if (n > 0) && (n < 2)
+    prev_1 = prev_2 = 1
+    for num in 3..n
+      res = prev_1 + prev_2
+      prev_2 = prev_1
+      prev_1 = res
+    end
+    res
+  end
+
+  def key_for_min_value(hash)
+    min_val = hash.values.min
+    hash.key(min_val)
   end
 end

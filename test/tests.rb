@@ -251,5 +251,45 @@ module RubequeTests
     def test_reverse_each_word
       assert_equal "olleH ,ereht dna woh era ?uoy", reverse_each_word("Hello there, and how are you?")
     end
+
+    def test_class_test
+      assert_equal Bar.new.say_name, "bar"
+    end
+
+    def test_generating_random_numbers
+      range = get_generating_random_numbers
+      a = rand(range)
+      b = rand(range)
+      c = rand(range)
+      d = rand(range)
+
+      assert_equal (a > 99 && a < 501), true
+      assert_equal (b > 99 && b < 501), true
+      assert_equal (c > 99 && c < 501), true
+      assert_equal (d > 99 && d < 501), true
+    end
+
+    def test_fibonachi
+      assert_equal 0, fibo_finder(0)
+      assert_equal 1, fibo_finder(1)
+      assert_equal 3, fibo_finder(4)
+      assert_equal 13, fibo_finder(7)
+      assert_equal 55, fibo_finder(10)
+    end
+
+    def test_little_hash_key
+      assert_equal key_for_min_value({"k" => 2, "h" => 3, "j" => 1}), "j"
+      assert_equal key_for_min_value({"o" => 0, "z" => -2, "j" => 1}), "z"
+      assert_equal key_for_min_value({}), nil
+    end
+
+    def test_constant_rule
+      assert_equal Foo.new.foo, CONST
+    end
+
+    def test_including_modules
+      assert_equal C.new.name, "b"
+      assert_equal D.new.name, "b"
+    end
   end
 end
