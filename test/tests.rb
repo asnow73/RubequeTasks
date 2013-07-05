@@ -200,5 +200,20 @@ module RubequeTests
       assert_equal stack.pop(3), [2, 4, 6]
       assert_equal stack.to_a, [5]
     end
+
+    def test_defined_or_not
+      w = :whatever if false
+      assert_equal defined?(w) != nil, defined_or_not
+    end
+
+    def test_no_limit
+      assert_equal ["1", "2", "3"], "1,2,3".split(',', -1)
+      assert_equal ["", "", "1", "2", "3"], ",,1,2,3".split(',', -1)
+      assert_equal ["1", "2", "3", "", ""], "1,2,3,,".split(',', -1)
+    end
+
+    def test_missing_method_ancestors
+      assert_equal B.ancestors[1], A
+    end
   end
 end

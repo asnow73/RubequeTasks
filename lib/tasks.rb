@@ -1,6 +1,8 @@
 require "queue.rb"
 require "character.rb"
 require "stack.rb"
+require "class_A.rb"
+require "class_B.rb"
 
 module RubequeTasks
   def the_truth
@@ -105,5 +107,9 @@ module RubequeTasks
 
   def the_limits_of_probability
     13
+  end
+
+  def defined_or_not
+    true
   end
 end
