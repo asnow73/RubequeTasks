@@ -220,5 +220,36 @@ module RubequeTests
       assert_equal "".encoding, default_encoding
       assert_equal "ascii compatible string".encoding, default_encoding
     end
+
+    def test_missing_method_assoc
+      trilogy = [["Sympathy for Mr Vengeance", "Ryu", "Cha Yeong-mi"], ["Oldboy", "Oh Dae-su", "Kang Hye-jeong"], ["Sympathy for Lady Vengeance", "Lee Geum-ja"]]
+
+      assert_equal trilogy.assoc("Sympathy for Lady Vengeance"), ["Sympathy for Lady Vengeance", "Lee Geum-ja"]
+      assert_equal trilogy.rassoc("Ryu"), ["Sympathy for Mr Vengeance", "Ryu", "Cha Yeong-mi"]
+      assert_equal trilogy.rassoc("Lee Geum-ja"), ["Sympathy for Lady Vengeance", "Lee Geum-ja"]
+    end
+
+    def test_phanaeng_curry
+      exponential = -> x, y { y ** x }
+      squared = exponential.curry[2]
+
+      assert_equal squared.(3) == 9, true
+    end
+
+    def test_shotgun_assignment
+      a, b, c = "eat", "chunky", "bacon"
+
+      assert_equal a, "eat"
+      assert_equal b, "chunky"
+      assert_equal c, "bacon"
+    end
+
+    def test_bigger_element
+      assert first_even([1, 3, 42, 5, 6]), 42
+    end
+
+    def test_reverse_each_word
+      assert_equal "olleH ,ereht dna woh era ?uoy", reverse_each_word("Hello there, and how are you?")
+    end
   end
 end

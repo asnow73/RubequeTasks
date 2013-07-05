@@ -116,4 +116,15 @@ module RubequeTasks
   def default_encoding
     Encoding.find("US-ASCII")
   end
+
+  def first_even(arr)
+    arr.each { |i| return i if i.even? }
+    return nil
+  end
+
+  def reverse_each_word(sentence)
+    words = sentence.split
+    words.each { |word| word.reverse! }
+    words.join(' ')
+  end
 end
