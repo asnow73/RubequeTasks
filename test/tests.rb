@@ -14,7 +14,7 @@ module RubequeTests
     end
 
     def test_reverse
-	    assert_equal "nocab yknuhc".reverse, reverse
+      assert_equal "nocab yknuhc".reverse, reverse
     end
 
     def test_hello_world
@@ -214,6 +214,11 @@ module RubequeTests
 
     def test_missing_method_ancestors
       assert_equal B.ancestors[1], A
+    end
+
+    def test_default_encoding
+      assert_equal "".encoding, default_encoding
+      assert_equal "ascii compatible string".encoding, default_encoding
     end
   end
 end

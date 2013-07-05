@@ -30,10 +30,10 @@ module RubequeTasks
   end
 
   def fizzbuzz(x)
-  	res = ""
-  	res << "Fizz" if x % 3 == 0
-  	res << "Buzz" if x % 5 == 0
-  	res
+    res = ""
+    res << "Fizz" if x % 3 == 0
+    res << "Buzz" if x % 5 == 0
+    res
   end
 
   #def missing_method
@@ -111,5 +111,9 @@ module RubequeTasks
 
   def defined_or_not
     true
+  end
+
+  def default_encoding
+    Encoding.find("US-ASCII")
   end
 end
