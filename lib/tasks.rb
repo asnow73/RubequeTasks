@@ -7,6 +7,9 @@ require "foo.rb"
 require "bar.rb"
 require "class_C.rb"
 require "class_D.rb"
+require "method_acting.rb"
+require "point.rb"
+require "rectangle.rb"
 
 module RubequeTasks
   def the_truth
@@ -150,5 +153,17 @@ module RubequeTasks
   def key_for_min_value(hash)
     min_val = hash.values.min
     hash.key(min_val)
+  end
+
+  def get_mail_reg_exp
+    /\w+@\w+\.[1-z]{3}/
+  end
+
+  def even_sum(arr)
+    arr.each_with_object([]) do |item, res|
+      if (!item.nil?) && (item.length.even?)
+        res << item.reverse
+      end
+    end
   end
 end

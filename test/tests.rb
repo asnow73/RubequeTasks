@@ -291,5 +291,51 @@ module RubequeTests
       assert_equal C.new.name, "b"
       assert_equal D.new.name, "b"
     end
+
+    def test_regular_expression
+      mail_regular = get_mail_reg_exp
+      assert_equal "john@mail.com to jane@mail.com".scan(mail_regular), ["john@mail.com", "jane@mail.com"]
+      assert_equal "why@ @chunkybacon.com why@chunkybacon.com".scan(mail_regular), ["why@chunkybacon.com"]
+      assert_equal "why @ @ why@chunkybacon".scan(mail_regular), []
+    end
+
+    def test_picking_lottery_numbers
+      superset = (1..500).to_a
+      week1 = superset.shuffle!.shift(5)
+      week2 = superset.shuffle!.shift(5)
+
+      assert_equal (week1.length == 5 && week2.length == 5), true
+      assert_equal (week1.sort != week2.sort), true
+    end
+
+    def test_method_acting
+      met = MethodActing.new
+      assert_equal met.dogs, :dogs
+      assert_equal met.cats, :cats
+      assert_equal met.chunky_bacon, :chunky_bacon
+    end
+
+    def test_lambda_fraternity
+      #even_check = -> x, y = 0 { x.even? && y.even? }
+      even_check = -> x, y = 0 { (x+y).even? }
+
+      assert_equal [[2, 4], [1, 2], [8, 12]].select{|arr| even_check.call(*arr)}, [[2, 4], [8, 12]]
+      assert_equal even_check.call(42), true
+      assert_equal [[2, 4], [2, 1], [8, 11]].select{|arr| even_check.call(*arr)}, [[2, 4]]
+    end
+
+    def test_rectangle_area
+      p1 = Point.new(0, 0)
+      p2 = Point.new(3, 4)
+      assert_equal Rectangle.new(p1, p2).area, 12
+      assert_equal Rectangle.new(p2, p1).area, 12
+      assert_equal Rectangle.new(Point.new(13, 5), p2).area,  10
+    end
+
+    def test_each_with_object
+      assert_equal even_sum(["cat", "dog", "bird", "fish"]), ["drib", "hsif"]
+      assert_equal even_sum(["why", "chunky", nil, "lucky", "stiff"]), ["yknuhc"]
+      assert_equal even_sum(["rewsna", "hitch hiker", "si", "guide", "galaxies ", "24"]), ["answer", "is", "42"]
+    end
   end
 end
