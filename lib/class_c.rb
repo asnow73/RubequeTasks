@@ -1,5 +1,5 @@
-require "module_A.rb"
-require "module_B.rb"
+require "module_a.rb"
+require "module_b.rb"
 
 module RubequeTasks
   class C
