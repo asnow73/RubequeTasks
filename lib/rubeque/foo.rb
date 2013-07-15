@@ -1,4 +1,4 @@
-module RubequeTasks
+module Rubeque
   CONST = rand
   class Foo
     CONST = rand(100)
@@ -11,7 +11,7 @@ module RubequeTasks
     end
 
     def foo
-      RubequeTasks.const_get(:CONST)
+      Rubeque.const_get(:CONST)
     end
   end
 end

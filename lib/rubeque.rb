@@ -1,17 +1,21 @@
-require "queue.rb"
-require "character.rb"
-require "stack.rb"
-require "class_a.rb"
-require "class_b.rb"
-require "foo.rb"
-require "bar.rb"
-require "class_c.rb"
-require "class_d.rb"
-require "method_acting.rb"
-require "point.rb"
-require "rectangle.rb"
+  
+ module Rubeque
+  require "rubeque/character.rb"
+  require "rubeque/storage.rb"
+  require "rubeque/queue.rb"
+  require "rubeque/stack.rb"
+  require "rubeque/class_a.rb"
+  require "rubeque/class_b.rb"
+  require "rubeque/foo.rb"
+  require "rubeque/bar.rb"
+  require "rubeque/module_a.rb"
+  require "rubeque/module_b.rb"
+  require "rubeque/class_c.rb"
+  require "rubeque/class_d.rb"
+  require "rubeque/method_acting.rb"
+  require "rubeque/point.rb"
+  require "rubeque/rectangle.rb"
 
-module RubequeTasks
   def the_truth
     true
   end
@@ -95,6 +99,7 @@ module RubequeTasks
     "HelloWorld"
   end
 
+
   def or_equal
     "rubeque"
   end
@@ -166,4 +171,5 @@ module RubequeTasks
       end
     end
   end
+
 end

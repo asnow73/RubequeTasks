@@ -1,4 +1,4 @@
-module RubequeTasks
+module Rubeque
   class Bar < Foo
     def name
       "bar"

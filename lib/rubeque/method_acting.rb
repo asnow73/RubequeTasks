@@ -1,4 +1,4 @@
-module RubequeTasks
+module Rubeque
   class MethodActing
     def dogs
       __method__

@@ -1,4 +1,4 @@
-module RubequeTasks
+module Rubeque
   class Rectangle
     attr_accessor :upper_left, :lower_right
 

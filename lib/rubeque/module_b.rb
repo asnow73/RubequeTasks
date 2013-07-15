@@ -1,4 +1,4 @@
-module B
+module BB
   def name
     "b"
   end

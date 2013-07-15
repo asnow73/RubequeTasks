@@ -1,13 +1,10 @@
-#require_relative 'test_helper'
-
 require "test_helper" #require "./test_helper"
-#autoload :RubequeTasks, "../lib/tasks"
-require "tasks" #require "../lib/tasks"
+require "rubeque"
 
 module RubequeTests
   class TestMain < MiniTest::Unit::TestCase
 
-    include RubequeTasks
+    include Rubeque
 
     def test_true
       assert_equal true, the_truth
@@ -337,5 +334,6 @@ module RubequeTests
       assert_equal even_sum(["why", "chunky", nil, "lucky", "stiff"]), ["yknuhc"]
       assert_equal even_sum(["rewsna", "hitch hiker", "si", "guide", "galaxies ", "24"]), ["answer", "is", "42"]
     end
+
   end
 end

@@ -1,4 +1,4 @@
-module A
+module AA
   def name
     "a"
   end
